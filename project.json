@@ -104,10 +104,8 @@
 	"preview" : "preview.jpg",
 	"ratingsex" : "none",
 	"ratingviolence" : "none",
-	"snapshotformat" : -1,
-	"snapshotoverlay" : "",
 	"tags" : [ "Unspecified" ],
 	"title" : "Boid Simulation",
-	"type" : "web",
+	"type" : "Web",
 	"version" : 3
 }
