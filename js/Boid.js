@@ -71,8 +71,8 @@ class Boid{
 	}
 
 	//screen drawing
-    draw() {
-        stroke(0,255,0);
+    draw(color) {
+        stroke(color);
 		noFill();
 
         let heading = this.vel.heading();

@@ -1,0 +1,7 @@
+"properties": {
+	"guide_enableColor": {
+		"text": "Slider",
+		"type": "bool",
+		"value": false
+	}
+}
