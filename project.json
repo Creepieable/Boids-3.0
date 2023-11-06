@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Boids wallpaper, now with spatial partitioning for better performance and more boids and customizable properties.\n\nImplemented with p5js",
+	"description" : "Boids wallpaper, now with spatial partitioning for better performance and support for more boids at once. I also exposed every parameter as a user customizable propertie.\n\nImplemented with p5js",
 	"file" : "index.html",
 	"general" : 
 	{
@@ -106,6 +106,8 @@
 	"ratingviolence" : "none",
 	"tags" : [ "Unspecified" ],
 	"title" : "Boid Simulation",
-	"type" : "Web",
-	"version" : 3
+	"type" : "web",
+	"version" : 5,
+	"workshopid" : "3074885923",
+	"workshopurl" : "steam://url/CommunityFilePage/3074885923"
 }
