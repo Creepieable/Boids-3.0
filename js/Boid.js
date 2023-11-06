@@ -30,16 +30,9 @@ class Boid{
 	getNeigborhood(flock, vision){
 		let neigborhood = [];
 		
-		for(let i=0; i<flock.length; i++){
-			if(flock[i] == this){
-				continue;
-			}
-			
-			let dist = this.pos.dist(flock[i].pos);
-			
-			if(dist <= vision){
-				neigborhood.push(flock[i]);
-			}
+		for(let member of flock){
+			if(member == this) continue;			
+			if(this.pos.dist(member.pos) <= vision) neigborhood.push(member);
 		}
 		return neigborhood;
 	}

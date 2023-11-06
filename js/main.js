@@ -1,23 +1,21 @@
 let boids = [];
 let grid;
 
-//boid params
-const boidcount = 500;
-const boidVisionRad = 50;
-const boidMaxSpeed = 2;
-const boidMaxSeparationForce = .22;
-const boidMaxCohesionForce = .2;
-const boidMaxAlignmentForce = .2;
-const boidSize = 3;
+//initial boid params
+var boidcount = 500;
+var boidVisionRad = 50;
+var boidMaxSpeed = 2;
+var boidMaxSeparationForce = .22;
+var boidMaxCohesionForce = .2;
+var boidMaxAlignmentForce = .2;
+var boidSize = 3;
+var boidColor;
 
 var bgColor;
-var boidColor;
 
 //debug
 let showFramerate = false;
 let showGrid = false;
-
-let debugText = "";
 
 function setup() {
     bgColor = color(40, 40, 40);
@@ -57,7 +55,7 @@ function draw() {
     }
 
     stroke(255);
-    text(debugText.toString(), 5,15);
+    text(boids.length, 5,15);
 
     //debugDraw
     if(showGrid) grid.draw();
@@ -97,46 +95,69 @@ window.wallpaperPropertyListener = {
 
         if (properties.boidcount) {
             if (properties.boidcount.value !== "") {
-                    // Do something with the slider value
-            }
-        }
+                let newCount = parseInt(properties.boidcount.value);
 
-        if (properties.cohesion) {
-            if (properties.cohesion.value !== "") {
-                for(let boid of boids){            
-                    boid.maxCohesionForce = parseFloat(properties.cohesion.value);  
+                if(newCount < boids.length){
+                    boids.splice(0, boids.length - newCount);
+                }
+                if(newCount > boids.length){
+                    while(boids.length < newCount){
+                        let boid = new Boid(random(0, width), random(0, height))
+                
+                        boid.visionRad = boidVisionRad;
+                        boid.maxSpeed = boidMaxSpeed;
+                        boid.maxSeparationForce = boidMaxSeparationForce;
+                        boid.maxCohesionForce = boidMaxCohesionForce;
+                        boid.maxAlignmentForce = boidMaxAlignmentForce;
+                        boid.size = boidSize;
+                
+                        boids.push(boid);
+                    }
                 }
             }
         }
 
-        if (properties.separation) {
-            if (properties.separation.value !== "") {
+        if (properties.boid_cohesion) {
+            if (properties.boid_cohesion.value !== "") {
+                boidMaxCohesionForce = parseFloat(properties.boid_cohesion.value);
                 for(let boid of boids){            
-                    boid.maxSeparationForce = parseFloat(properties.separation.value);  
+                    boid.maxCohesionForce = boidMaxCohesionForce;  
                 }
             }
         }
 
-        if (properties.alignment) {
-            if (properties.alignment.value !== "") {
+        if (properties.boid_separation) {
+            if (properties.boid_separation.value !== "") {
+                boidMaxSeparationForce  = parseFloat(properties.boid_separation.value);
                 for(let boid of boids){            
-                    boid.maxAlignmentForce = parseFloat(properties.alignment.value);  
+                    boid.maxSeparationForce = boidMaxSeparationForce;  
+                }
+            }
+        }
+
+        if (properties.boid_alignment) {
+            if (properties.boid_alignment.value !== "") {
+                boidMaxAlignmentForce = parseFloat(properties.boid_alignment.value)
+                for(let boid of boids){            
+                    boid.maxAlignmentForce = boidMaxAlignmentForce;  
                 }
             }
         }
         
-        if (properties.maxspeed) {
-            if (properties.maxspeed.value !== "") {
+        if (properties.boid_maxspeed) {
+            if (properties.boid_maxspeed.value !== "") {
+                boidMaxSpeed = parseFloat(properties.boid_maxspeed.value);
                 for(let boid of boids){            
-                    boid.maxSpeed = parseFloat(properties.maxspeed.value);  
+                    boid.maxSpeed = boidMaxSpeed;  
                 }
             }
         }
 
-        if (properties.visionradius) {
-            if (properties.visionradius.value !== "") {
-                for(let boid of boids){            
-                    boid.visionRad = parseFloat(properties.visionradius.value);  
+        if (properties.boid_visionradius) {
+            if (properties.boid_visionradius.value !== "") {
+                boidVisionRad = parseFloat(properties.boid_visionradius.value); 
+                for(let boid of boids){           
+                    boid.visionRad = boidVisionRad;  
                 }
             }
         } 

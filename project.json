@@ -1,10 +1,12 @@
 {
+	"contentrating" : "Everyone",
+	"description" : "Boids wallpaper, now with spatial partitioning for better performance and more boids and customizable properties.\n\nImplemented with p5js",
 	"file" : "index.html",
 	"general" : 
 	{
 		"properties" : 
 		{
-			"alignment" : 
+			"boid_alignment" : 
 			{
 				"fraction" : true,
 				"index" : 6,
@@ -17,6 +19,19 @@
 				"type" : "slider",
 				"value" : 0.2
 			},
+			"boid_cohesion" : 
+			{
+				"fraction" : true,
+				"index" : 5,
+				"max" : 1,
+				"min" : 0,
+				"order" : 105,
+				"precision" : 3,
+				"step" : 0.01,
+				"text" : "Cohesion",
+				"type" : "slider",
+				"value" : 0.2
+			},
 			"boid_color" : 
 			{
 				"index" : 0,
@@ -24,6 +39,45 @@
 				"text" : "Boid color",
 				"type" : "color",
 				"value" : "0 1 0"
+			},
+			"boid_maxspeed" : 
+			{
+				"fraction" : true,
+				"index" : 3,
+				"max" : 10,
+				"min" : 0,
+				"order" : 103,
+				"precision" : 3,
+				"step" : 0.01,
+				"text" : "Max Speed",
+				"type" : "slider",
+				"value" : 2
+			},
+			"boid_seperation" : 
+			{
+				"fraction" : true,
+				"index" : 4,
+				"max" : 1,
+				"min" : 0,
+				"order" : 104,
+				"precision" : 3,
+				"step" : 0.01,
+				"text" : "Seperation",
+				"type" : "slider",
+				"value" : 0.22
+			},
+			"boid_visionradius" : 
+			{
+				"fraction" : true,
+				"index" : 2,
+				"max" : 250,
+				"min" : 0,
+				"order" : 102,
+				"precision" : 3,
+				"step" : 0.01,
+				"text" : "Vision Radius",
+				"type" : "slider",
+				"value" : 50
 			},
 			"boidcount" : 
 			{
@@ -38,71 +92,22 @@
 				"type" : "slider",
 				"value" : 500
 			},
-			"cohesion" : 
-			{
-				"fraction" : true,
-				"index" : 4,
-				"max" : 1,
-				"min" : 0,
-				"order" : 104,
-				"precision" : 3,
-				"step" : 0.01,
-				"text" : "Cohesion",
-				"type" : "slider",
-				"value" : 0.2
-			},
-			"maxspeed" : 
-			{
-				"fraction" : true,
-				"index" : 3,
-				"max" : 10,
-				"min" : 0,
-				"order" : 103,
-				"precision" : 3,
-				"step" : 0.01,
-				"text" : "Max Speed",
-				"type" : "slider",
-				"value" : 2
-			},
 			"schemecolor" : 
 			{
 				"order" : 0,
 				"text" : "Background color",
 				"type" : "color",
 				"value" : "0.1 0.1 0.1"
-			},
-			"separation" : 
-			{
-				"fraction" : true,
-				"index" : 5,
-				"max" : 1,
-				"min" : 0,
-				"order" : 105,
-				"precision" : 3,
-				"step" : 0.01,
-				"text" : "Separation",
-				"type" : "slider",
-				"value" : 0.22
-			},
-			"visionradius" : 
-			{
-				"fraction" : true,
-				"index" : 2,
-				"max" : 250,
-				"min" : 1,
-				"order" : 102,
-				"precision" : 3,
-				"step" : 0.01,
-				"text" : "Vision Radius",
-				"type" : "slider",
-				"value" : 50
 			}
 		}
 	},
 	"preview" : "preview.jpg",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
 	"snapshotformat" : -1,
 	"snapshotoverlay" : "",
-	"title" : "Boids 3.0",
+	"tags" : [ "Unspecified" ],
+	"title" : "Boid Simulation",
 	"type" : "web",
 	"version" : 3
 }
